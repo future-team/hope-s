@@ -1,0 +1,62 @@
+/**
+    button提供三种不同大小
+    48px 42px
+    风格颜色可参考bootsrap的方式
+    提供统一的命名前缀
+
+    <button class="hope-btn">按钮</button>
+ */
+@import "../mixins/button";
+@import "../@{p-s}/mixins/user-select";
+
+
+//xs md sm lg
+//按钮基础样式
+.@{prefix}btn {
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    outline: 0;
+    text-decoration: none;
+    font-weight: @btn-font-weight;
+    .user-select(none);
+
+    .button-variant(@gray-dark; @white; @gray-lighter);
+    //background-color: @white;
+    .default-btn-size;
+    /** 提供不同大小的按钮 */
+    &-xs{
+        .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-base; @border-radius-small);
+    }
+    &-sm{
+        .button-size(@padding-default; @padding-small-horizontal; @font-size-small; @line-height-base; @border-radius-small);
+    }
+    &-md,.default-btn-size{
+        .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-base; @line-height-base; @border-radius-base);
+    }
+    &-lg{
+        .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-base; @border-radius-large);
+    }
+
+    &-link{
+        border-color: transparent;
+        background: transparent;
+        .button-variant(@gray-dark; transparent; transparent);
+        &:hover{
+            text-decoration: underline;
+            color: @hover-color;
+        }
+    }
+}
+.skin();
+
+/** group btn */
+.@{prefix}btn-group{
+
+}

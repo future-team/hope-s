@@ -1,0 +1,92 @@
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+    padding: @padding-vertical @padding-horizontal;
+    font-size: @font-size;
+    line-height: @line-height;
+    border-radius: @border-radius;
+}
+
+.button-variant(@color; @background; @border) {
+
+    color: @color;
+    background-color: @background;
+    border-color: @border;
+
+    &:hover {
+        color: @color;
+        background-color: darken(@background, 5%);
+        border-color: darken(@border, 10%);
+    }
+
+    &.@{prefix}btn-active{
+        color: @color;
+        background-color: darken(@background, 5%);
+        border-color: darken(@border, 10%);
+
+        &:hover,
+        &.focus {
+            color: @color;
+            background-color: darken(@background, 12%);
+            border-color: darken(@border, 20%);
+        }
+    }
+
+    &.@{prefix}btn-disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            background-color: lighten(@background,18%);
+            border-color: lighten(@border,15%);
+            color: darken(@color,10%);
+            cursor: default;
+        }
+    }
+
+    .badge {
+        color: @background;
+        background-color: @color;
+    }
+}
+
+.skin() {
+    .@{prefix}btn-primary{
+        .button-variant(@white,@brand-primary,darken(@brand-primary, 5%) );
+        &.@{prefix}btn-hollow{
+            .button-variant(@font-color,@white,darken(@brand-primary, 5%) );
+        }
+    }
+    .@{prefix}btn-success{
+        .button-variant(@white,@brand-success,darken(@brand-success, 5%) );
+        &.@{prefix}btn-hollow{
+            .button-variant(@font-color,@white,darken(@brand-success, 5%) );
+        }
+    }
+    .@{prefix}btn-info{
+        .button-variant(@white,@brand-info,darken(@brand-info, 5%) );
+        &.@{prefix}btn-hollow{
+            .button-variant(@font-color,@white,darken(@brand-info, 5%) );
+        }
+    }
+    .@{prefix}btn-warning{
+        .button-variant(@white,@brand-warning,darken(@brand-warning, 5%) );
+        &.@{prefix}btn-hollow{
+            .button-variant(@font-color,@white,darken(@brand-warning, 5%) );
+        }
+    }
+    .@{prefix}btn-danger{
+        .button-variant(@white,@brand-danger,darken(@brand-danger, 5%) );
+        &.@{prefix}btn-hollow{
+            .button-variant(@font-color,@white,darken(@brand-danger, 5%) );
+        }
+    }
+    .@{prefix}btn-error{
+        .button-variant(@white,@brand-error,darken(@brand-error, 5%) );
+        &.@{prefix}btn-hollow{
+            .button-variant(@font-color,@white,darken(@brand-error, 5%) );
+        }
+    }
+}
